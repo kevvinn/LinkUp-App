@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -70,6 +73,10 @@ public class AddEventsFragment extends Fragment {
     DatabaseReference databaseReference;
     Button upload;
 
+    //test
+    private FirebaseAuth mAuth;
+    //test
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -83,17 +90,22 @@ public class AddEventsFragment extends Fragment {
         pd = new ProgressDialog(getContext());
         pd.setCanceledOnTouchOutside(false);
         Intent intent = getActivity().getIntent();
-
         // Retrieving the user data like name ,email and profile pic using query
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query query = databaseReference.orderByChild("email").equalTo(email);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("myTag", "???");
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                    name = dataSnapshot1.child("name").getValue().toString();
-                    email = "" + dataSnapshot1.child("email").getValue();
-                    dp = "" + dataSnapshot1.child("image").getValue().toString();
+                    //ModelUsers modelUsers = dataSnapshot.getValue(ModelUsers.class);
+                    Log.d("myTag", "hola");
+                    name = dataSnapshot.child("name").getValue().toString();
+
+                    //name = modelUsers.getName();
+                    System.out.println(name);
+                    email = "" + dataSnapshot.child("email").getValue();
+                    dp = "" + dataSnapshot.child("image").getValue().toString();
                 }
             }
 
@@ -265,13 +277,6 @@ public class AddEventsFragment extends Fragment {
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] data = byteArrayOutputStream.toByteArray();
 
-        /* test
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference(filepathname);
-
-        myRef.setValue("Hello, World!");
-        */
-
         // initialising the storage reference for updating the data
         StorageReference storageReference1 = FirebaseStorage.getInstance().getReference().child(filepathname);
         storageReference1.putBytes(data).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -283,6 +288,25 @@ public class AddEventsFragment extends Fragment {
                 String downloadUri = uriTask.getResult().toString();
                 if (uriTask.isSuccessful()) {
                     // if task is successful the update the data into firebase
+
+                    // test
+                    mAuth = FirebaseAuth.getInstance();
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    String email = user.getEmail();
+                    String uid = user.getUid();
+                    System.out.println("ahem");
+                    //name = "I Tired";
+                    //ModelUsers modelUsers = new ModelUsers
+                    name = user.getDisplayName();
+
+                    for (UserInfo userInfo : user.getProviderData()) {
+                        if (name == null && userInfo.getDisplayName() != null) {
+                            name = userInfo.getDisplayName();
+                        }
+                    }
+                    // test
+
+
                     HashMap<Object, String> hashMap = new HashMap<>();
                     hashMap.put("uid", uid);
                     hashMap.put("uname", name);

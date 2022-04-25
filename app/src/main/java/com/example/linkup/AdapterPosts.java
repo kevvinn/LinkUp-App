@@ -1,6 +1,5 @@
 package com.example.linkup;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -64,7 +63,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final MyHolder holder, @SuppressLint("RecyclerView") final int position) {
+    public void onBindViewHolder(@NonNull final MyHolder holder, final int position) {
         final String uid = modelPosts.get(position).getUid();
         String nameh = modelPosts.get(position).getUname();
         final String titlee = modelPosts.get(position).getTitle();
@@ -97,6 +96,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
         } catch (Exception e) {
 
         }
+
         holder.like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +105,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
                 holder.itemView.getContext().startActivity(intent);
             }
         });
+
         holder.likebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,12 +135,15 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
                 });
             }
         });
+
         holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showMoreOptions(holder.more, uid, myuid, ptime, image);
             }
         });
+
+
         holder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,6 +189,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
                         pd.dismiss();
                         Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_LONG).show();
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 

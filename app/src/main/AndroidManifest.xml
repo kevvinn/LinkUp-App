@@ -16,22 +16,22 @@
         android:theme="@style/Theme.LinkUp">
         <activity
             android:name=".PostDetailsActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".PostLikedByActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".EditProfilePage"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DashboardActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".RegistrationActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".SplashScreen"
             android:exported="true">

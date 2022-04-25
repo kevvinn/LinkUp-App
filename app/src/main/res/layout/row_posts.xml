@@ -134,14 +134,15 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:autoLink="all"
-
                 android:background="@color/colorWhite"
                 android:drawableStart="@drawable/ic_launcher_background"
                 android:drawableLeft="@drawable/ic_launcher_background"
                 android:padding="5dp"
                 android:text="COMMENT" />
+
         </LinearLayout>
 
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+
