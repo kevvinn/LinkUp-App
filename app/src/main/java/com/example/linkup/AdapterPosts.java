@@ -38,7 +38,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.AdapterPosts.MyHolder> {
+public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
+
 
     Context context;
     String myuid;
@@ -96,7 +97,6 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
         } catch (Exception e) {
 
         }
-
         holder.like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +105,6 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
                 holder.itemView.getContext().startActivity(intent);
             }
         });
-
         holder.likebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +114,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
                 liekeref.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                         if (mprocesslike) {
                             if (dataSnapshot.child(postid).hasChild(myuid)) {
                                 postref.child(postid).child("plike").setValue("" + (plike - 1));
@@ -135,15 +135,12 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
                 });
             }
         });
-
         holder.more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showMoreOptions(holder.more, uid, myuid, ptime, image);
             }
         });
-
-
         holder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +152,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
     }
 
     private void showMoreOptions(ImageButton more, String uid, String myuid, final String pid, final String image) {
+
         PopupMenu popupMenu = new PopupMenu(context, more, Gravity.END);
         if (uid.equals(myuid)) {
             popupMenu.getMenu().add(Menu.NONE, 0, 0, "DELETE");
@@ -186,6 +184,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                             dataSnapshot1.getRef().removeValue();
                         }
+
                         pd.dismiss();
                         Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_LONG).show();
                     }
@@ -208,6 +207,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
         liekeref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 if (dataSnapshot.child(pid).hasChild(myuid)) {
                     holder.likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_launcher_background, 0, 0, 0);
                     holder.likebtn.setText("Liked");
@@ -222,6 +222,7 @@ public class AdapterPosts extends RecyclerView.Adapter<com.example.linkup.Adapte
 
             }
         });
+
     }
 
     @Override

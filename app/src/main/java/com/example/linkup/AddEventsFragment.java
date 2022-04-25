@@ -297,7 +297,7 @@ public class AddEventsFragment extends Fragment {
                     System.out.println("ahem");
                     //name = "I Tired";
                     //ModelUsers modelUsers = new ModelUsers
-                    name = user.getDisplayName();
+                    name = "default name";
 
                     for (UserInfo userInfo : user.getProviderData()) {
                         if (name == null && userInfo.getDisplayName() != null) {
