@@ -33,6 +33,9 @@
             android:name=".RegistrationActivity"
             android:exported="true" />
         <activity
+            android:name=".ChatActivity"
+            android:exported="true" />
+        <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>

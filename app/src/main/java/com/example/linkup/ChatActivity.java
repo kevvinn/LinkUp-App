@@ -13,6 +13,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -97,8 +99,12 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.chatrecycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        uid = getIntent().getStringExtra("uid");
-
+        //uid = getIntent().getStringExtra("uid");
+        // test
+        //View view = LayoutInflater.from(savedInstanceState.getContext()).inflate(R.layout.row_users, parent, false);
+        // test
+        uid = "x8MCeqXjZpRiaM8eekgLBOmetbp1";
+        Log.v("myTag", "tryna initialize uid = " + uid);
         // getting uid of another user using intent
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -432,6 +438,8 @@ public class ChatActivity extends AppCompatActivity {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         String timestamp = String.valueOf(System.currentTimeMillis());
         HashMap<String, Object> hashMap = new HashMap<>();
+        Log.v("myTag", "myuid = " + myuid);
+        Log.v("myTag", "uid = " + uid);
         hashMap.put("sender", myuid);
         hashMap.put("receiver", uid);
         hashMap.put("message", message);

@@ -1,10 +1,13 @@
 package com.example.linkup;
 
 import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,6 +38,15 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_users, parent, false);
+        TextView name = view.findViewById(R.id.namep);
+        name.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(parent.getContext(), ChatActivity.class);
+                context.startActivity(intent);
+                //getActivity().finish();
+                Toast.makeText(parent.getContext(), "new chat pless", Toast.LENGTH_LONG).show();
+            }
+        });
         return new MyHolder(view);
     }
 
@@ -69,4 +81,129 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
             email = itemView.findViewById(R.id.emailp);
         }
     }
+
+    // tryna start a chat
+    /*
+
+    private void uploadData(final String titl, final String description) {
+        // show the progress dialog box
+        pd.setMessage("Publishing Post");
+        pd.show();
+        final String timestamp = String.valueOf(System.currentTimeMillis());
+        String filepathname = "Posts/" + "post" + timestamp;
+        Bitmap bitmap = ((BitmapDrawable) image.getDrawable()).getBitmap();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] data = byteArrayOutputStream.toByteArray();
+
+        // initialising the storage reference for updating the data
+        StorageReference storageReference1 = FirebaseStorage.getInstance().getReference().child(filepathname);
+        storageReference1.putBytes(data).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // getting the url of image uploaded
+                Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
+                while (!uriTask.isSuccessful()) ;
+                String downloadUri = uriTask.getResult().toString();
+                if (uriTask.isSuccessful()) {
+                    // if task is successful the update the data into firebase
+                    HashMap<Object, String> hashMap = new HashMap<>();
+                    hashMap.put("uid", uid);
+                    hashMap.put("uname", name);
+                    hashMap.put("uemail", email);
+                    hashMap.put("udp", dp);
+                    hashMap.put("title", titl);
+                    hashMap.put("description", description);
+                    hashMap.put("uimage", downloadUri);
+                    hashMap.put("ptime", timestamp);
+                    hashMap.put("plike", "0");
+                    hashMap.put("pcomments", "0");
+
+                    // set the data into firebase and then empty the title ,description and image data
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
+                    databaseReference.child(timestamp).setValue(hashMap)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    pd.dismiss();
+                                    Toast.makeText(getContext(), "Published", Toast.LENGTH_LONG).show();
+                                    title.setText("");
+                                    des.setText("");
+                                    image.setImageURI(null);
+                                    imageuri = null;
+                                    startActivity(new Intent(getContext(), DashboardActivity.class));
+                                    getActivity().finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            pd.dismiss();
+                            Toast.makeText(getContext(), "Failed", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                pd.dismiss();
+                Toast.makeText(getContext(), "Failed", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    upload = view.findViewById(R.id.pupload);
+    upload.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String titl = "" + title.getText().toString().trim();
+            String description = "" + des.getText().toString().trim();
+
+            // If empty set error
+            if (TextUtils.isEmpty(titl)) {
+                title.setError("Title Cant be empty");
+                Toast.makeText(getContext(), "Title can't be left empty", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            // If empty set error
+            if (TextUtils.isEmpty(description)) {
+                des.setError("Description Cant be empty");
+                Toast.makeText(getContext(), "Description can't be left empty", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            // If empty show error
+            if (imageuri == null) {
+                Toast.makeText(getContext(), "Select an Image", Toast.LENGTH_LONG).show();
+                return;
+            } else {
+                uploadData(titl, description);
+            }
+        }
+    });
+    // set the data into firebase and then empty the title ,description and image data
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
+                    databaseReference.child(timestamp).setValue(hashMap)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    pd.dismiss();
+                                    Toast.makeText(getContext(), "Published", Toast.LENGTH_LONG).show();
+                                    title.setText("");
+                                    des.setText("");
+                                    image.setImageURI(null);
+                                    imageuri = null;
+                                    startActivity(new Intent(getContext(), DashboardActivity.class));
+                                    getActivity().finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            pd.dismiss();
+                            Toast.makeText(getContext(), "Failed", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+    */
+    // tryna start a chat
 }

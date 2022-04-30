@@ -16,12 +16,13 @@
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_browse.xml" value="0.33" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_chat_list.xml" value="0.25" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_profile.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_users.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_chat_left.xml" value="0.2" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_chat_right.xml" value="0.18" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_chatlist.xml" value="0.13069908814589665" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_comments.xml" value="0.25" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_posts.xml" value="0.1" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_users.xml" value="0.1" />
+        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_posts.xml" value="0.25" />
+        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_users.xml" value="0.25" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/menu/main_menu.xml" value="0.1" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/menu/my_menu.xml" value="0.1318359375" />
       </map>
