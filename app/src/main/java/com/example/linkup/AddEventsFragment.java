@@ -81,6 +81,8 @@ public class AddEventsFragment extends Fragment {
         // test wait this workedddddd
         FirebaseUser user = firebaseAuth.getCurrentUser();
         email = user.getEmail();
+        uid = user.getUid();
+        Log.v("myTag", "addeventsfragment after uid = user.getUid() = " + uid);
         // test
 
         title = view.findViewById(R.id.ptitle);
@@ -103,6 +105,7 @@ public class AddEventsFragment extends Fragment {
                     name = dataSnapshot1.child("name").getValue().toString();
                     email = "" + dataSnapshot1.child("email").getValue();
                     dp = "" + dataSnapshot1.child("image").getValue().toString();
+                    //uid = dataSnapshot1.child("uid").getValue().toString();
                 }
             }
 
@@ -286,6 +289,7 @@ public class AddEventsFragment extends Fragment {
                 if (uriTask.isSuccessful()) {
                     // if task is successful the update the data into firebase
                     HashMap<Object, String> hashMap = new HashMap<>();
+                    Log.v("myTag", "addeventsfragment: uid = " + uid);
                     hashMap.put("uid", uid);
                     hashMap.put("uname", name);
                     hashMap.put("uemail", email);

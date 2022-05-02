@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -74,6 +75,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         String plike = modelPosts.get(position).getPlike();
         final String image = modelPosts.get(position).getUimage();
         String email = modelPosts.get(position).getUemail();
+        Log.v("myTag", "adapterposts: email = " + email + "; nameh = " + nameh + "; titlee = " + titlee);
         String comm = modelPosts.get(position).getPcomments();
         final String pid = modelPosts.get(position).getPtime();
         Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
