@@ -70,6 +70,24 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/date_eventrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="MM/DD/YYYY" />
+
+        <TextView
+            android:id="@+id/time_eventrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="hh:mm" />
+
+        <TextView
+            android:id="@+id/location_eventrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="address" />
+
+        <TextView
             android:id="@+id/descript"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

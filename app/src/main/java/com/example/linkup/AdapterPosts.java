@@ -75,9 +75,12 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         String plike = modelPosts.get(position).getPlike();
         final String image = modelPosts.get(position).getUimage();
         String email = modelPosts.get(position).getUemail();
-        Log.v("myTag", "adapterposts: email = " + email + "; nameh = " + nameh + "; titlee = " + titlee);
         String comm = modelPosts.get(position).getPcomments();
         final String pid = modelPosts.get(position).getPtime();
+        final String edate = modelPosts.get(position).getEventDate();
+        final String etime = modelPosts.get(position).getEventTime();
+        final String elocation = modelPosts.get(position).getEventLocation();
+        Log.v("myTag", "adapterposts: email = " + email + "; nameh = " + nameh + "; titlee = " + titlee + "; elocation = "+elocation);
         Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
         calendar.setTimeInMillis(Long.parseLong(ptime));
         String timedate = DateFormat.format("dd/MM/yyyy hh:mm aa", calendar).toString();
@@ -87,6 +90,9 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         holder.time.setText(timedate);
         holder.like.setText(plike + " Likes");
         holder.comments.setText(comm + " Comments");
+        holder.event_date.setText(edate);
+        holder.event_time.setText(etime);
+        holder.event_location.setText(elocation);
         setLikes(holder, ptime);
         try {
             Glide.with(context).load(dp).into(holder.picture);
@@ -234,7 +240,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
 
     class MyHolder extends RecyclerView.ViewHolder {
         ImageView picture, image;
-        TextView name, time, title, description, like, comments;
+        TextView name, time, title, description, like, comments, event_date, event_time, event_location;
         ImageButton more;
         Button likebtn, comment;
         LinearLayout profile;
@@ -253,6 +259,9 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             likebtn = itemView.findViewById(R.id.like);
             comment = itemView.findViewById(R.id.comment);
             profile = itemView.findViewById(R.id.profilelayout);
+            event_date = itemView.findViewById(R.id.date_eventrow);
+            event_time = itemView.findViewById(R.id.time_eventrow);
+            event_location = itemView.findViewById(R.id.location_eventrow);
         }
     }
 }

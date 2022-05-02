@@ -56,7 +56,7 @@ public class AddEventsFragment extends Fragment {
     }
 
     FirebaseAuth firebaseAuth;
-    EditText title, des;
+    EditText title, des, etime, elocation, edate;
     private static final int CAMERA_REQUEST = 100;
     private static final int STORAGE_REQUEST = 200;
     String cameraPermission[];
@@ -89,6 +89,9 @@ public class AddEventsFragment extends Fragment {
         des = view.findViewById(R.id.pdes);
         image = view.findViewById(R.id.imagep);
         upload = view.findViewById(R.id.pupload);
+        edate = view.findViewById(R.id.pdate);
+        etime = view.findViewById(R.id.pevent_time);
+        elocation = view.findViewById(R.id.pevent_location);
         pd = new ProgressDialog(getContext());
         pd.setCanceledOnTouchOutside(false);
         Intent intent = getActivity().getIntent();
@@ -133,6 +136,9 @@ public class AddEventsFragment extends Fragment {
             public void onClick(View v) {
                 String titl = "" + title.getText().toString().trim();
                 String description = "" + des.getText().toString().trim();
+                String event_date = "" + edate.getText().toString().trim();
+                String event_time = "" + etime.getText().toString().trim();
+                String event_location = "" + elocation.getText().toString().trim();
 
                 // If empty set error
                 if (TextUtils.isEmpty(titl)) {
@@ -148,12 +154,30 @@ public class AddEventsFragment extends Fragment {
                     return;
                 }
 
+                if (TextUtils.isEmpty(description)) {
+                    edate.setError("Date Cant be empty");
+                    Toast.makeText(getContext(), "Date can't be left empty", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(description)) {
+                    etime.setError("Time Cant be empty");
+                    Toast.makeText(getContext(), "Time can't be left empty", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(description)) {
+                    elocation.setError("Location Cant be empty");
+                    Toast.makeText(getContext(), "Location can't be left empty", Toast.LENGTH_LONG).show();
+                    return;
+                }
+
                 // If empty show error
                 if (imageuri == null) {
                     Toast.makeText(getContext(), "Select an Image", Toast.LENGTH_LONG).show();
                     return;
                 } else {
-                    uploadData(titl, description);
+                    uploadData(titl, description, event_date, event_time, event_location);
                 }
             }
         });
@@ -266,7 +290,7 @@ public class AddEventsFragment extends Fragment {
     }
 
     // Upload the value of blog data into firebase
-    private void uploadData(final String titl, final String description) {
+    private void uploadData(final String titl, final String description, final String event_date, final String event_time, final String event_location) {
         // show the progress dialog box
         pd.setMessage("Publishing Post");
         pd.show();
@@ -300,6 +324,9 @@ public class AddEventsFragment extends Fragment {
                     hashMap.put("ptime", timestamp);
                     hashMap.put("plike", "0");
                     hashMap.put("pcomments", "0");
+                    hashMap.put("event_date", event_date);
+                    hashMap.put("event_time", event_time);
+                    hashMap.put("event_location", event_location);
 
                     // set the data into firebase and then empty the title ,description and image data
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Posts");

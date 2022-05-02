@@ -1,5 +1,7 @@
 package com.example.linkup;
 
+import android.util.Log;
+
 public class ModelPost {
     public ModelPost() {
     }
@@ -32,6 +34,24 @@ public class ModelPost {
 
     public String getTitle() {
         return title;
+    }
+
+    public String getEventTime() { return event_time; }
+
+    public void setEventTime(String event_time) {
+        this.event_time = event_time;
+    }
+
+    public String getEventDate() { return event_date; }
+
+    public void setEventDate(String event_date) {
+        this.event_date = event_date;
+    }
+
+    public String getEventLocation() { return event_location; }
+
+    public void setEventLocation(String event_location) {
+        this.event_location = event_location;
     }
 
     public void setTitle(String title) {
@@ -96,7 +116,7 @@ public class ModelPost {
         this.pcomments = pcomments;
     }
 
-    public ModelPost(String description, String pid, String ptime, String pcomments, String title, String udp, String uemail, String uid, String uimage, String uname, String plike) {
+    public ModelPost(String description, String pid, String ptime, String pcomments, String title, String udp, String uemail, String uid, String uimage, String uname, String plike, String event_date, String event_time, String event_location) {
         this.description = description;
         this.pid = pid;
         this.ptime = ptime;
@@ -108,6 +128,9 @@ public class ModelPost {
         this.uimage = uimage;
         this.uname = uname;
         this.plike = plike;
+        this.event_date = event_date;
+        this.event_time = event_time;
+        this.event_location = event_location;
     }
 
     String ptime, pcomments;
@@ -120,5 +143,7 @@ public class ModelPost {
     String uimage;
 
     String uname, plike;
+
+    String event_date, event_time, event_location;
 
 }

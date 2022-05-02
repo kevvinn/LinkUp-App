@@ -16,7 +16,6 @@
             android:id="@+id/ptitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher_background"
             android:hint="Enter Title"
             android:minHeight="80dp"
             android:padding="10dp"
@@ -35,13 +34,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:background="@drawable/ic_launcher_background"
             android:gravity="start"
             android:hint="Enter Description"
             android:inputType="textCapSentences|textMultiLine"
             android:minHeight="120dp"
             android:padding="10dp"
             android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/pdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Date"
+            android:inputType="date"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/pevent_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Time"
+            android:inputType="time"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/pevent_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Enter Location"
+            android:inputType="textPostalAddress"
+            android:minHeight="48dp" />
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/pupload"

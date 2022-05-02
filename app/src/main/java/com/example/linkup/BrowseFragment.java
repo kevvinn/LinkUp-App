@@ -3,6 +3,7 @@ package com.example.linkup;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -68,6 +69,7 @@ public class BrowseFragment extends Fragment {
                 posts.clear();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     ModelPost modelPost = dataSnapshot1.getValue(ModelPost.class);
+                    Log.e("ihatethis", "onDataChange: "+modelPost.getDescription() );
                     posts.add(modelPost);
                     adapterPosts = new AdapterPosts(getActivity(), posts);
                     recyclerView.setAdapter(adapterPosts);
