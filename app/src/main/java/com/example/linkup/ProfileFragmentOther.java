@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,12 +34,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProfileFragment extends Fragment {
+public class ProfileFragmentOther extends Fragment {
 
     private FirebaseAuth firebaseAuth;
     FirebaseUser firebaseUser;
@@ -62,23 +64,24 @@ public class ProfileFragment extends Fragment {
     String storagePermission[];
     Uri imageuri;
 
-    public ProfileFragment() {
+    public ProfileFragmentOther() {
         // Required empty public constructor
     }
     boolean notMyProfile = false;
     String actualEmail;
     String actualUid = null;
-    Boolean myProfile = false;
+    Button friendbtn;
+    private DatabaseReference friendref = FirebaseDatabase.getInstance().getReference().child("Friends");
+    boolean sentRequest = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {// was here:
 
         Log.v("myTag", "profileFragment: onCreateView");
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile_other, container, false);
 
         // test
-        /*
         Bundle bundle = getActivity().getIntent().getExtras();
         if(bundle == null)
         {
@@ -92,7 +95,7 @@ public class ProfileFragment extends Fragment {
             Log.v("myTag", "profileFragment: notMyProfile = " + notMyProfile);
             //
             //getIntent().removeExtra("email");
-        }*/
+        }
 
         // test
 
@@ -112,8 +115,12 @@ public class ProfileFragment extends Fragment {
         loadMyPosts();
         pd.setCanceledOnTouchOutside(false);
 
+        friendbtn = view.findViewById(R.id.friend);
+
+
+
         // Retrieving user data from firebase
-        /*if(actualEmail != null){
+        if(actualEmail != null){
             Query query = databaseReference.orderByChild("email").equalTo(actualEmail);
             query.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -125,6 +132,34 @@ public class ProfileFragment extends Fragment {
                         nam.setText(name);
                         email.setText(emaill);
                         actualUid = (String) dataSnapshot1.child("uid").getValue();
+                        Log.v("myTag", "what is actualUid = " + actualUid);
+                        databaseReference = FirebaseDatabase.getInstance().getReference("Friends");
+                        Query query2 = databaseReference.orderByChild("receiver").equalTo(actualUid);
+                        Log.v("myTag", "asdf actualUid = " + actualUid);
+                        query2.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                Log.v("myTag", "asdf");
+                                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                    Log.v("myTag", "asdfasdf");
+                                    if(dataSnapshot1.child("sender").getValue().toString().equals(uid)){
+                                        if(dataSnapshot1.child("sentRequest").getValue().toString().equals("true")){
+                                            sentRequest = true;
+                                            Log.v("myTag", "asdfasdfasdf");
+                                            friendbtn.setText("Friend request sent");
+                                        }
+
+
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+
+                        });
                         try {
                             Glide.with(getActivity()).load(image).into(avatartv);
                         } catch (Exception e) {
@@ -139,8 +174,9 @@ public class ProfileFragment extends Fragment {
 
                 }
             });
-        }*/
-        //else{
+
+        }
+        else{
             Query query = databaseReference.orderByChild("email").equalTo(firebaseUser.getEmail());
             query.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -165,7 +201,7 @@ public class ProfileFragment extends Fragment {
 
                 }
             });
-       // }
+        }
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,15 +209,71 @@ public class ProfileFragment extends Fragment {
                 startActivity(new Intent(getActivity(), EditProfilePage.class));
             }
         });
+
+        friendbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*databaseReference = FirebaseDatabase.getInstance().getReference("Friends");
+                Query query2 = databaseReference.orderByChild("receiver").equalTo(actualUid);
+                Log.v("myTag", "asdf actualUid = " + actualUid);
+                query2.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        Log.v("myTag", "asdf");
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                            Log.v("myTag", "asdfasdf");
+                            if(dataSnapshot1.child("sender").getValue().toString().equals(uid)){
+                                if(dataSnapshot1.child("sentRequest").getValue().toString().equals("true")){
+                                    sentRequest = true;
+                                    Log.v("myTag", "asdfasdfasdf");
+                                    friendbtn.setText("Friend request sent");
+                                }
+
+
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+
+                });*/
+                if(sentRequest == false)
+                {
+                    Log.v("myTag", "sentRequest = false");
+                    HashMap<Object, String> hashMap = new HashMap<>();
+                    Log.v("myTag", "addeventsfragment: uid = " + uid);
+                    hashMap.put("receiver", actualUid);
+                    hashMap.put("sender", uid);
+                    hashMap.put("sentRequest", "true");
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Friends");
+                    final String timestamp = String.valueOf(System.currentTimeMillis());
+                    databaseReference.child(timestamp).setValue(hashMap);
+                    friendbtn.setText("Friend request sent");
+                    sentRequest = true;
+                }
+
+                else
+                {
+                    friendbtn.setText("Unsent friend request");
+                    sentRequest = false;
+                }
+            }
+        });
         return view;
+
+
     }
+
 
     private void loadMyPosts() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setReverseLayout(true);
         layoutManager.setStackFromEnd(true);
         postrecycle.setLayoutManager(layoutManager);
-        /*if(actualUid != null)
+        if(actualUid != null)
         {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
             Query query = databaseReference.orderByChild("uid").equalTo(actualUid);
@@ -204,9 +296,9 @@ public class ProfileFragment extends Fragment {
                     Toast.makeText(getActivity(), databaseError.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
-        }*/
-        //else
-        //{
+        }
+        else
+        {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Posts");
             Query query = databaseReference.orderByChild("uid").equalTo(uid);
             Log.v("myTag", "profileFragment: uid = " + uid);
@@ -230,7 +322,7 @@ public class ProfileFragment extends Fragment {
             });
         }
 
-    //}
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -240,7 +332,7 @@ public class ProfileFragment extends Fragment {
         // test
         //super.onCreate(savedInstanceState);
         //if(savedInstanceState != null)
-          //  savedInstanceState.clear();
+        //  savedInstanceState.clear();
         super.onCreate(savedInstanceState);
     }
    /* @Override

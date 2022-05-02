@@ -43,6 +43,7 @@ import java.util.Locale;
 // test
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+
 // test
 
 public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {

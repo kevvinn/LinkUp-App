@@ -41,8 +41,10 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_users, parent, false);
+        de.hdodenhof.circleimageview.CircleImageView profilePic = view.findViewById(R.id.imagep);
         TextView name = view.findViewById(R.id.namep);
         TextView email = view.findViewById(R.id.emailp);
+
         name.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(parent.getContext(), ChatActivity.class);
@@ -53,6 +55,16 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
                 //getActivity().finish();
                 Toast.makeText(parent.getContext(), "new chat pless", Toast.LENGTH_LONG).show();
             }
+        });
+
+        profilePic.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DashboardActivity.class);
+                intent.putExtra("profiling", true);
+                intent.putExtra("email", (String) email.getText());
+                context.startActivity(intent);
+            }
+
         });
         return new MyHolder(view);
     }

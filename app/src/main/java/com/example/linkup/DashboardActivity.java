@@ -1,6 +1,7 @@
 package com.example.linkup;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,8 @@ public class DashboardActivity extends AppCompatActivity {
     ActionBar actionBar;
     BottomNavigationView navigationView;
     boolean sharing = false;
+    boolean profiling = false;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +38,13 @@ public class DashboardActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            sharing = bundle.getBoolean("sharing");
+            sharing = bundle.getBoolean("sharing", false);
+            profiling = bundle.getBoolean("profiling", false);
+            email = bundle.getString("email", null);
         }
-        if(sharing == false)
+        if(sharing == false && profiling == false)
         {
+            Log.v("myTag","DashboardActivity: sharing and profiling false");
             // When we open the application first
             // time the fragment should be shown to the user
             // in this case it is home fragment
@@ -46,19 +52,34 @@ public class DashboardActivity extends AppCompatActivity {
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content, fragment, "");
             fragmentTransaction.commit();
-        }
-        else
-        {
+            //finish();
 
-            /*Bundle bundle = new Bundle();
-            bundle.putString("params", "My String data");
-// set MyFragment Arguments
-            MyFragment myObj = new MyFragment();
-            myObj.setArguments(bundle);*/
+        }
+        else if(sharing == true)
+        {
+            Log.v("myTag","DashboardActivity: only sharing true");
             UsersFragment fragment = new UsersFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.content, fragment, "");
             fragmentTransaction.commit();
+            //dialog.dismiss();
+            //finish();
+            sharing = false;
+        }
+        else if(profiling == true)
+        {
+            Log.v("myTag","DashboardActivity: only profiling true");
+
+            Bundle bundlep = new Bundle();
+            bundlep.putString("notMyProfile", "true");
+            bundlep.putString("email", email);
+            ProfileFragmentOther fragment = new ProfileFragmentOther();
+            fragment.setArguments(bundlep);
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content, fragment);
+            fragmentTransaction.commit();
+            //finish();
+            profiling = false;
         }
     }
 
@@ -77,7 +98,25 @@ public class DashboardActivity extends AppCompatActivity {
 
                 case R.id.nav_profile:
                     actionBar.setTitle("Profile");
+                   /* Bundle bundlep = new Bundle();
+                    //bundlep.putBoolean("myProfile", true);
+                    bundlep.putString("notMyProfile", "false");
+                    //bundlep.putBoolean("myProfile", true);
+                    bundlep.putString("email", "amyle707@gmail.com");
                     ProfileFragment fragment1 = new ProfileFragment();
+                    fragment1.setArguments(bundlep);
+                    FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction1.replace(R.id.content, fragment1);
+                    fragmentTransaction1.commit();*/
+                    //finish();
+                    Log.v("myTag", "DashboardActivity: new profile frag?");
+
+
+                   /* Bundle bundlep = new Bundle();
+                    bundlep.putString("notMyProfile", "false");
+                    bundlep.putString("email", "amyle707@gmail.com");*/
+                    ProfileFragment fragment1 = new ProfileFragment();
+                    //fragment1.setArguments(bundlep);
                     FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
                     fragmentTransaction1.replace(R.id.content, fragment1);
                     fragmentTransaction1.commit();
