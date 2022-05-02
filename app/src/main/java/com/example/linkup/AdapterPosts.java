@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -38,6 +39,11 @@ import com.google.firebase.storage.StorageReference;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+
+// test
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+// test
 
 public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
 
@@ -157,6 +163,17 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
                 context.startActivity(intent);
             }
         });
+        // test
+        holder.sharebtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Log.v("myTag", "adapterposts: share button clicked");
+               Intent intent = new Intent(context, DashboardActivity.class);
+               intent.putExtra("sharing", true);
+               context.startActivity(intent);
+           }
+        });
+        // test
     }
 
     private void showMoreOptions(ImageButton more, String uid, String myuid, final String pid, final String image) {
@@ -243,6 +260,9 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         TextView name, time, title, description, like, comments, event_date, event_time, event_location;
         ImageButton more;
         Button likebtn, comment;
+        // test
+        Button sharebtn;
+        // test
         LinearLayout profile;
 
         public MyHolder(@NonNull View itemView) {
@@ -262,6 +282,9 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             event_date = itemView.findViewById(R.id.date_eventrow);
             event_time = itemView.findViewById(R.id.time_eventrow);
             event_location = itemView.findViewById(R.id.location_eventrow);
+            // test
+            sharebtn = itemView.findViewById(R.id.share);
+            // test
         }
     }
 }
