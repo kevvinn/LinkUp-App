@@ -3,7 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_chat.xml" value="0.25" />
+        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_chat.xml" value="0.1" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_dashboard.xml" value="0.12386018237082067" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.125" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_login.xml" value="0.27291666666666664" />
@@ -21,9 +21,11 @@
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_chat_right.xml" value="0.18" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_chatlist.xml" value="0.13069908814589665" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_comments.xml" value="0.25" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_posts.xml" value="0.25" />
+        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_posts.xml" value="0.1" />
+        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_posts_share.xml" value="0.26875" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_users.xml" value="0.25" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/menu/main_menu.xml" value="0.1" />
+        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/menu/menu_nav.xml" value="0.26875" />
         <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/menu/my_menu.xml" value="0.1318359375" />
       </map>
     </option>

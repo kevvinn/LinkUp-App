@@ -96,6 +96,8 @@ public class ModelPost {
         this.pcomments = pcomments;
     }
 
+    public String getEvent_time() { return event_time; }
+
     public ModelPost(String description, String pid, String ptime, String pcomments, String title, String udp, String uemail, String uid, String uimage, String uname, String plike) {
         this.description = description;
         this.pid = pid;
@@ -120,5 +122,7 @@ public class ModelPost {
     String uimage;
 
     String uname, plike;
+
+    String event_time;
 
 }

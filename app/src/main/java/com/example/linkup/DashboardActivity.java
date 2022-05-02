@@ -19,6 +19,7 @@ public class DashboardActivity extends AppCompatActivity {
     String myuid;
     ActionBar actionBar;
     BottomNavigationView navigationView;
+    boolean sharing = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +33,33 @@ public class DashboardActivity extends AppCompatActivity {
         navigationView.setOnNavigationItemSelectedListener(selectedListener);
         actionBar.setTitle("Home");
 
-        // When we open the application first
-        // time the fragment should be shown to the user
-        // in this case it is home fragment
-        BrowseFragment fragment = new BrowseFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content, fragment, "");
-        fragmentTransaction.commit();
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null) {
+            sharing = bundle.getBoolean("sharing");
+        }
+        if(sharing == false)
+        {
+            // When we open the application first
+            // time the fragment should be shown to the user
+            // in this case it is home fragment
+            BrowseFragment fragment = new BrowseFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content, fragment, "");
+            fragmentTransaction.commit();
+        }
+        else
+        {
+
+            /*Bundle bundle = new Bundle();
+            bundle.putString("params", "My String data");
+// set MyFragment Arguments
+            MyFragment myObj = new MyFragment();
+            myObj.setArguments(bundle);*/
+            UsersFragment fragment = new UsersFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.content, fragment, "");
+            fragmentTransaction.commit();
+        }
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener selectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
