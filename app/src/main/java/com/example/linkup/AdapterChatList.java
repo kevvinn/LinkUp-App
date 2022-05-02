@@ -2,6 +2,7 @@ package com.example.linkup;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class AdapterChatList extends RecyclerView.Adapter<AdapterChatList.Myhold
     public void onBindViewHolder(@NonNull Myholder holder, final int position) {
 
         final String hisuid = usersList.get(position).getUid();
+        Log.v("myTag", "hisuid = " + hisuid);
         String userimage = usersList.get(position).getImage();
         String username = usersList.get(position).getName();
         String lastmess = lastMessageMap.get(hisuid);

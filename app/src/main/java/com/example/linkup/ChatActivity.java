@@ -80,6 +80,11 @@ public class ChatActivity extends AppCompatActivity {
     boolean notify = false;
     boolean isBlocked = false;
 
+    // test
+    String receiverEmail, receiverName;
+    DatabaseReference databaseReference;
+    // test
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,22 +94,83 @@ public class ChatActivity extends AppCompatActivity {
         // initialise the text views and layouts
         profile = findViewById(R.id.profiletv);
         name = findViewById(R.id.nameptv);
+
         userstatus = findViewById(R.id.onlinetv);
         msg = findViewById(R.id.messaget);
         send = findViewById(R.id.sendmsg);
         attach = findViewById(R.id.attachbtn);
         block = findViewById(R.id.block);
+
+        //uid = getIntent().getStringExtra("uid");
+        // test
+        //View view = LayoutInflater.from(savedInstanceState.getContext()).inflate(R.layout.row_users, parent, false);
+        Bundle bundle = getIntent().getExtras();
+        receiverEmail = bundle.getString("receiver");
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        Query query = databaseReference.orderByChild("email").equalTo(receiverEmail);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.v("myTag", "before getChildren");
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Log.v("myTag", "after getChildren");
+                    uid = dataSnapshot1.child("uid").getValue().toString();
+                    receiverName = dataSnapshot1.child("name").getValue().toString();
+                    Log.v("myTag", "receiverName = " + receiverName);
+                    // test
+                    name.setText(receiverName);
+                    // test ("HisName" show up when first create chat)
+                    //name = dataSnapshot1.child("name").getValue().toString();
+                    //email = "" + dataSnapshot1.child("email").getValue();
+                    //dp = "" + dataSnapshot1.child("image").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        if(receiverName == null)
+        {
+            bundle = getIntent().getExtras();
+            uid = bundle.getString("uid");
+            databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+            query = databaseReference.orderByChild("uid").equalTo(uid);
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    Log.v("myTag", "before getChildren");
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        Log.v("myTag", "after getChildren");
+                        //uid = dataSnapshot1.child("uid").getValue().toString();
+                        receiverName = dataSnapshot1.child("name").getValue().toString();
+                        Log.v("myTag", "receiverName = " + receiverName);
+                        // test
+                        name.setText(receiverName);
+                        // test ("HisName" show up when first create chat)
+                        //name = dataSnapshot1.child("name").getValue().toString();
+                        //email = "" + dataSnapshot1.child("email").getValue();
+                        //dp = "" + dataSnapshot1.child("image").getValue().toString();
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+        }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView = findViewById(R.id.chatrecycle);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-        //uid = getIntent().getStringExtra("uid");
-        // test
-        //View view = LayoutInflater.from(savedInstanceState.getContext()).inflate(R.layout.row_users, parent, false);
-        // test
-        uid = "x8MCeqXjZpRiaM8eekgLBOmetbp1";
+        //uid = "x8MCeqXjZpRiaM8eekgLBOmetbp1";
         Log.v("myTag", "tryna initialize uid = " + uid);
+        // test
+
         // getting uid of another user using intent
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -223,7 +289,10 @@ public class ChatActivity extends AppCompatActivity {
         dbref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                // need to test
+                Log.v("myTag", "myuid = " + myuid);
+                Log.v("myTag", "uid = " + uid);
+                // test
                 chatList.clear();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     ModelChat modelChat = dataSnapshot1.getValue(ModelChat.class);
@@ -357,7 +426,32 @@ public class ChatActivity extends AppCompatActivity {
                     hashMap.put("timestamp", timestamp);
                     hashMap.put("dilihat", false);
                     hashMap.put("type", "images");
+
+                    // test
+
+                    databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+                    Query query = databaseReference.orderByChild("email").equalTo(receiverEmail);
+                    query.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            Log.v("myTag", "before getChildren");
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                Log.v("myTag", "after getChildren");
+                                uid = dataSnapshot1.child("uid").getValue().toString();
+                                //name = dataSnapshot1.child("name").getValue().toString();
+                                //email = "" + dataSnapshot1.child("email").getValue();
+                                //dp = "" + dataSnapshot1.child("image").getValue().toString();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
                     re.child("Chats").push().setValue(hashMap); // push in firebase using unique id
+                    // test
                     final DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("ChatList").child(uid).child(myuid);
                     ref1.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -435,6 +529,28 @@ public class ChatActivity extends AppCompatActivity {
         // creating a reference to store data in firebase
         // We will be storing data using current time in "Chatlist"
         // and we are pushing data using unique id in "Chats"
+        // test
+        databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        Query query = databaseReference.orderByChild("email").equalTo(receiverEmail);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.v("myTag", "before getChildren");
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    Log.v("myTag", "after getChildren");
+                    uid = dataSnapshot1.child("uid").getValue().toString();
+                    //name = dataSnapshot1.child("name").getValue().toString();
+                    //email = "" + dataSnapshot1.child("email").getValue();
+                    //dp = "" + dataSnapshot1.child("image").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        // test
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
         String timestamp = String.valueOf(System.currentTimeMillis());
         HashMap<String, Object> hashMap = new HashMap<>();
