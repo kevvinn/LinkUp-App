@@ -116,7 +116,7 @@ public class ModelPost {
         this.pcomments = pcomments;
     }
 
-    public ModelPost(String description, String pid, String ptime, String pcomments, String title, String udp, String uemail, String uid, String uimage, String uname, String plike, String event_date, String event_time, String event_location) {
+    public ModelPost(String description, String pid, String ptime, String pcomments, String title, String udp, String uemail, String uid, String uimage, String uname, String plike) {
         this.description = description;
         this.pid = pid;
         this.ptime = ptime;
@@ -128,9 +128,6 @@ public class ModelPost {
         this.uimage = uimage;
         this.uname = uname;
         this.plike = plike;
-        this.event_date = event_date;
-        this.event_time = event_time;
-        this.event_location = event_location;
     }
 
     String ptime, pcomments;

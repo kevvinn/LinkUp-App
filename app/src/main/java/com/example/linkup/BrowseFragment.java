@@ -69,6 +69,9 @@ public class BrowseFragment extends Fragment {
                 posts.clear();
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     ModelPost modelPost = dataSnapshot1.getValue(ModelPost.class);
+                    modelPost.setEventDate(String.valueOf(dataSnapshot1.child("event_date").getValue()));
+                    modelPost.setEventTime(String.valueOf(dataSnapshot1.child("event_time").getValue()));
+                    modelPost.setEventLocation(String.valueOf(dataSnapshot1.child("event_location").getValue()));
                     Log.e("ihatethis", "onDataChange: "+modelPost.getDescription() );
                     posts.add(modelPost);
                     adapterPosts = new AdapterPosts(getActivity(), posts);
