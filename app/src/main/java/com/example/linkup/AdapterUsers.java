@@ -53,7 +53,7 @@ public class AdapterUsers extends RecyclerView.Adapter<AdapterUsers.MyHolder> {
                 intent.putExtras(bundle);
                 context.startActivity(intent);
                 //getActivity().finish();
-                Toast.makeText(parent.getContext(), "new chat pless", Toast.LENGTH_LONG).show();
+                Toast.makeText(parent.getContext(), "Opening Chat", Toast.LENGTH_LONG).show();
             }
         });
 
