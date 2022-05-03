@@ -36,10 +36,15 @@
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/row_users.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/menu/menu_nav.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/brianphan/Desktop/cseProject/app/src/main/res/drawable-v24/ic_baseline_account_circle_24.xml" value="0.2355" />
+        <entry key="..\:/Users/brianphan/Desktop/cseProject/app/src/main/res/drawable-v24/ic_baseline_info_24.xml" value="0.2355" />
+        <entry key="..\:/Users/brianphan/Desktop/cseProject/app/src/main/res/layout/activity_login.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/brianphan/Desktop/cseProject/app/src/main/res/layout/activity_registration.xml" value="0.25" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
