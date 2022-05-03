@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/ic_baseline_chat_bubble_48" />
 
         <ImageView
             android:id="@+id/seen"
@@ -60,7 +60,7 @@
             android:layout_below="@id/blocking"
             android:layout_alignParentEnd="true"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/ic_baseline_more_horiz_48" />
 
     </RelativeLayout>
 

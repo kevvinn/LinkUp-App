@@ -73,7 +73,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@null"
-                            android:src="@drawable/ic_launcher_background" />
+                            android:src="@drawable/ic_baseline_expand_more_48" />
 
                     </LinearLayout>
 
@@ -182,8 +182,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_launcher_background"
-                android:drawableLeft="@drawable/ic_launcher_background"
+                android:drawableStart="@drawable/ic_baseline_comment_bank_32"
+                android:drawableLeft="@drawable/ic_baseline_comment_bank_32"
                 android:drawablePadding="5dp"
                 android:padding="2dp"
                 android:text="Comments"
@@ -227,7 +227,7 @@
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:background="@color/colorWhite"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/ic_baseline_send_48" />
 
     </RelativeLayout>
 
