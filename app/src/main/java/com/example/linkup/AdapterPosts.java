@@ -235,10 +235,10 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.child(pid).hasChild(myuid)) {
-                    holder.likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_launcher_background, 0, 0, 0);
+                    holder.likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.yes_rsvpd, 0, 0, 0);
                     holder.likebtn.setText("Liked");
                 } else {
-                    holder.likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_launcher_background, 0, 0, 0);
+                    holder.likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.not_rsvpd_yet, 0, 0, 0);
                     holder.likebtn.setText("Like");
                 }
             }

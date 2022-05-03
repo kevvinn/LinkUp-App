@@ -86,6 +86,24 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/edateco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Date" />
+
+                    <TextView
+                        android:id="@+id/etimeco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Time" />
+
+                    <TextView
+                        android:id="@+id/elocationco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Location" />
+
+                    <TextView
                         android:id="@+id/descriptco"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

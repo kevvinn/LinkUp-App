@@ -5,13 +5,16 @@
       <map>
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/drawable/bg_btn.xml" value="0.1" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/drawable/calendar_icon.xml" value="0.225" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/drawable/ic_baseline_check_box_24.xml" value="0.225" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/drawable/not_rsvpd_yet.xml" value="0.225" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/drawable/yes_rsvpd.xml" value="0.225" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_calendar.xml" value="0.33" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_chat.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_post_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_post_details.xml" value="0.25" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_post_liked_by.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_registration.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_splash_screen.xml" value="0.36666666666666664" />

@@ -42,7 +42,7 @@ public class PostDetailsActivity extends AppCompatActivity {
 
     String hisuid, ptime, myuid, myname, myemail, mydp, uimage, postId, plike, hisdp, hisname;
     ImageView picture, image;
-    TextView name, time, title, description, like, tcomment;
+    TextView name, time, title, description, like, tcomment, event_date, event_time, event_location;
     ImageButton more;
     Button likebtn, share;
     LinearLayout profile;
@@ -83,6 +83,9 @@ public class PostDetailsActivity extends AppCompatActivity {
         imagep = findViewById(R.id.commentimge);
         share = findViewById(R.id.share);
         profile = findViewById(R.id.profilelayout);
+        event_date = findViewById(R.id.edateco);
+        event_time = findViewById(R.id.etimeco);
+        event_location = findViewById(R.id.elocationco);
         progressDialog = new ProgressDialog(this);
         loadPostInfo();
 
@@ -144,10 +147,10 @@ public class PostDetailsActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 if (dataSnapshot.child(postId).hasChild(myuid)) {
-                    likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_launcher_background, 0, 0, 0);
+                    likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.yes_rsvpd, 0, 0, 0);
                     likebtn.setText("Liked");
                 } else {
-                    likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_launcher_background, 0, 0, 0);
+                    likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.not_rsvpd_yet, 0, 0, 0);
                     likebtn.setText("Like");
                 }
             }
@@ -284,6 +287,9 @@ public class PostDetailsActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     String ptitle = dataSnapshot1.child("title").getValue().toString();
                     String descriptions = dataSnapshot1.child("description").getValue().toString();
+                    String edate = dataSnapshot1.child("event_date").getValue().toString();
+                    String etime = dataSnapshot1.child("event_time").getValue().toString();
+                    String elocation = dataSnapshot1.child("event_location").getValue().toString();
                     uimage = dataSnapshot1.child("uimage").getValue().toString();
                     //hisdp = dataSnapshot1.child("udp").getValue().toString();
                     // hisuid = dataSnapshot1.child("uid").getValue().toString();
@@ -297,6 +303,10 @@ public class PostDetailsActivity extends AppCompatActivity {
                     String timedate = DateFormat.format("dd/MM/yyyy hh:mm aa", calendar).toString();
                     name.setText(hisname);
                     title.setText(ptitle);
+                    event_date.setText(edate);
+                    event_time.setText(etime);
+                    event_location.setText(elocation);
+
                     description.setText(descriptions);
                     like.setText(plike + " Likes");
                     time.setText(timedate);
