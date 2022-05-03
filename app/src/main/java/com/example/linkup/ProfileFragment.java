@@ -49,7 +49,7 @@ public class ProfileFragment extends Fragment {
     RecyclerView postrecycle;
     StorageReference storageReference;
     String storagepath = "Users_Profile_Cover_image/";
-    FloatingActionButton fab;
+    FloatingActionButton fab, open_calendar_button;
     List<ModelPost> posts;
     AdapterPosts adapterPosts;
     String uid;
@@ -106,6 +106,7 @@ public class ProfileFragment extends Fragment {
         uid = FirebaseAuth.getInstance().getUid();
 
         fab = view.findViewById(R.id.fab);
+        open_calendar_button = view.findViewById(R.id.open_calendar_button);
         postrecycle = view.findViewById(R.id.recyclerposts);
         posts = new ArrayList<>();
         pd = new ProgressDialog(getActivity());
@@ -173,6 +174,13 @@ public class ProfileFragment extends Fragment {
                 startActivity(new Intent(getActivity(), EditProfilePage.class));
             }
         });
+
+        open_calendar_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), CalendarActivity.class));
+            }
+        });
         return view;
     }
 
@@ -216,6 +224,9 @@ public class ProfileFragment extends Fragment {
                     posts.clear();
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                         ModelPost modelPost = dataSnapshot1.getValue(ModelPost.class);
+                        modelPost.setEventDate(String.valueOf(dataSnapshot1.child("event_date").getValue()));
+                        modelPost.setEventTime(String.valueOf(dataSnapshot1.child("event_time").getValue()));
+                        modelPost.setEventLocation(String.valueOf(dataSnapshot1.child("event_location").getValue()));
                         posts.add(modelPost);
                         adapterPosts = new AdapterPosts(getActivity(), posts);
                         postrecycle.setAdapter(adapterPosts);

@@ -3,41 +3,35 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/drawable/bg_btn.xml" value="0.1" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/drawable/calendar_icon.xml" value="0.225" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_calendar.xml" value="0.33" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_chat.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_post_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_post_liked_by.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_registration.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/activity_splash_screen.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/dialog_update_password.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/fragment_add_events.xml" value="0.5" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/fragment_browse.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/fragment_chat_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/fragment_profile_other.xml" value="0.29074074074074074" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/fragment_users.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/row_chat_left.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/row_chat_right.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/row_chatlist.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/row_comments.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/row_posts.xml" value="0.33" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_chat.xml" value="0.1" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_dashboard.xml" value="0.12386018237082067" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_edit_profile_page.xml" value="0.125" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_login.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_post_details.xml" value="0.12552083333333333" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_post_liked_by.xml" value="0.12552083333333333" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_registration.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/activity_splash_screen.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/dialog_update_password.xml" value="0.125" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_add_events.xml" value="0.15760869565217392" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_browse.xml" value="0.33" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_chat_list.xml" value="0.25" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_profile.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_profile_other.xml" value="0.25" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/fragment_users.xml" value="0.23052536231884058" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_chat_left.xml" value="0.2" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_chat_right.xml" value="0.18" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_chatlist.xml" value="0.13069908814589665" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_comments.xml" value="0.25" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_posts.xml" value="0.1" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_posts_share.xml" value="0.26875" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/layout/row_users.xml" value="0.25" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/menu/main_menu.xml" value="0.1" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/menu/menu_nav.xml" value="0.26875" />
-        <entry key="..\:/Users/yendu/LinkUp/app/src/main/res/menu/my_menu.xml" value="0.1318359375" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/row_posts_share.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/layout/row_users.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Kevin/AndroidStudioProjects/LinkUp-App/app/src/main/res/menu/menu_nav.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#02BCAA"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="150dp"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|left"
+        android:duplicateParentState="false"
+        android:minHeight="32dp"
+        android:orientation="horizontal"
+        android:spinnerMode="dropdown"
+
+        android:textSize="14sp" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top|left"
+        android:duplicateParentState="false"
+        android:minHeight="48dp"
+        android:orientation="horizontal"
+        android:spinnerMode="dropdown"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="54dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bg_calen"
+        android:translationY="-50dp">
+
+        <CalendarView
+            android:layout_width="match_parent"
+            android:layout_height="325dp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_700">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/calendar_back_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Back" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+

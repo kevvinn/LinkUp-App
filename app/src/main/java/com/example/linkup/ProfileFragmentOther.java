@@ -285,6 +285,9 @@ public class ProfileFragmentOther extends Fragment {
                     for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                         ModelPost modelPost = dataSnapshot1.getValue(ModelPost.class);
                         posts.add(modelPost);
+                        modelPost.setEventDate(String.valueOf(dataSnapshot1.child("event_date").getValue()));
+                        modelPost.setEventTime(String.valueOf(dataSnapshot1.child("event_time").getValue()));
+                        modelPost.setEventLocation(String.valueOf(dataSnapshot1.child("event_location").getValue()));
                         adapterPosts = new AdapterPosts(getActivity(), posts);
                         postrecycle.setAdapter(adapterPosts);
                     }

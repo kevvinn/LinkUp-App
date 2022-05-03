@@ -84,9 +84,9 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         String email = modelPosts.get(position).getUemail();
         String comm = modelPosts.get(position).getPcomments();
         final String pid = modelPosts.get(position).getPtime();
-        final String edate = modelPosts.get(position).getEventDate();
-        final String etime = modelPosts.get(position).getEventTime();
-        final String elocation = modelPosts.get(position).getEventLocation();
+        final String edate = "DATE: "+modelPosts.get(position).getEventDate();
+        final String etime = "TIME: "+modelPosts.get(position).getEventTime();
+        final String elocation = "LOCATION: "+modelPosts.get(position).getEventLocation();
         Log.v("myTag", "adapterposts: email = " + email + "; nameh = " + nameh + "; titlee = " + titlee + "; elocation = "+elocation);
         Calendar calendar = Calendar.getInstance(Locale.ENGLISH);
         calendar.setTimeInMillis(Long.parseLong(ptime));
