@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/backgroundlogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,8 +15,8 @@
         android:layout_marginTop="50dp"
         android:text="Edit Profile Data"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="26sp" />
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/setting_profile_image"
@@ -29,10 +31,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Update Profile Pic"
+        android:text="Update Profile Picture"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/editname"
@@ -41,8 +43,8 @@
         android:layout_marginTop="20dp"
         android:text="Update Name"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/changepassword"
@@ -51,7 +53,7 @@
         android:layout_marginTop="20dp"
         android:text="Change Password "
         android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textColor="@color/colorWhite"
+        android:textSize="24sp" />
 
 </LinearLayout>
