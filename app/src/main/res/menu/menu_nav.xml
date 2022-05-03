@@ -2,24 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_browse"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="Browse" />
     <item
         android:id="@+id/nav_users"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_baseline_people_alt_24"
         android:title="Users" />
     <item
         android:id="@+id/nav_addevents"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_baseline_add_circle_24"
         android:title="Add Events" />
 
     <item
         android:id="@+id/nav_chat"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_baseline_chat_24"
         android:title="ChatList" />
     <item
         android:id="@+id/nav_profile"
-        android:icon="@drawable/ic_launcher_background"
+        android:icon="@drawable/ic_baseline_person_24"
         android:title="Profile" />
 
 </menu>
