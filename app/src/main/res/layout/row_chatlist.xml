@@ -59,8 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/blocking"
             android:layout_alignParentEnd="true"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_baseline_more_horiz_48" />
+            android:layout_gravity="center_vertical" />
 
     </RelativeLayout>
 

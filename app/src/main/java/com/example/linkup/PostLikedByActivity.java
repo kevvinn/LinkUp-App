@@ -32,7 +32,7 @@ public class PostLikedByActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post_liked_by);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Post Liked By");
+        actionBar.setTitle("Current Attendees");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         firebaseAuth = FirebaseAuth.getInstance();

@@ -149,25 +149,25 @@ public class AddEventsFragment extends Fragment {
 
                 // If empty set error
                 if (TextUtils.isEmpty(description)) {
-                    des.setError("Description Cant be empty");
+                    des.setError("Description can't be empty");
                     Toast.makeText(getContext(), "Description can't be left empty", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                if (TextUtils.isEmpty(description)) {
-                    edate.setError("Date Cant be empty");
+                if (TextUtils.isEmpty(event_date)) {
+                    edate.setError("Date can't be empty");
                     Toast.makeText(getContext(), "Date can't be left empty", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                if (TextUtils.isEmpty(description)) {
-                    etime.setError("Time Cant be empty");
+                if (TextUtils.isEmpty(event_time)) {
+                    etime.setError("Time can't be empty");
                     Toast.makeText(getContext(), "Time can't be left empty", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                if (TextUtils.isEmpty(description)) {
-                    elocation.setError("Location Cant be empty");
+                if (TextUtils.isEmpty(event_location)) {
+                    elocation.setError("Location can't be empty");
                     Toast.makeText(getContext(), "Location can't be left empty", Toast.LENGTH_LONG).show();
                     return;
                 }

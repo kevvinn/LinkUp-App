@@ -26,8 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/ic_launcher_background"
-            android:src="@drawable/ic_launcher_background" />
+            android:background="#D3D3D3"
+            android:src="@drawable/ic_baseline_add_photo_alternate_24" />
 
         <EditText
             android:id="@+id/pdes"

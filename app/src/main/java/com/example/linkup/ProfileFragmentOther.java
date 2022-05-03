@@ -51,7 +51,7 @@ public class ProfileFragmentOther extends Fragment {
     RecyclerView postrecycle;
     StorageReference storageReference;
     String storagepath = "Users_Profile_Cover_image/";
-    FloatingActionButton fab;
+//    FloatingActionButton fab;
     List<ModelPost> posts;
     AdapterPosts adapterPosts;
     String uid;
@@ -108,7 +108,7 @@ public class ProfileFragmentOther extends Fragment {
         email = view.findViewById(R.id.emailtv);
         uid = FirebaseAuth.getInstance().getUid();
 
-        fab = view.findViewById(R.id.fab);
+//        fab = view.findViewById(R.id.fab);
         postrecycle = view.findViewById(R.id.recyclerposts);
         posts = new ArrayList<>();
         pd = new ProgressDialog(getActivity());
@@ -203,12 +203,12 @@ public class ProfileFragmentOther extends Fragment {
             });
         }
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), EditProfilePage.class));
-            }
-        });
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(getActivity(), EditProfilePage.class));
+//            }
+//        });
 
         friendbtn.setOnClickListener(new View.OnClickListener() {
             @Override

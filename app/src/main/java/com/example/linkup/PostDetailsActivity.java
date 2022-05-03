@@ -148,10 +148,10 @@ public class PostDetailsActivity extends AppCompatActivity {
 
                 if (dataSnapshot.child(postId).hasChild(myuid)) {
                     likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.yes_rsvpd, 0, 0, 0);
-                    likebtn.setText("Liked");
+                    likebtn.setText("RSVP'd");
                 } else {
                     likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.not_rsvpd_yet, 0, 0, 0);
-                    likebtn.setText("Like");
+                    likebtn.setText("RSVP");
                 }
             }
 
@@ -287,9 +287,9 @@ public class PostDetailsActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     String ptitle = dataSnapshot1.child("title").getValue().toString();
                     String descriptions = dataSnapshot1.child("description").getValue().toString();
-                    String edate = dataSnapshot1.child("event_date").getValue().toString();
-                    String etime = dataSnapshot1.child("event_time").getValue().toString();
-                    String elocation = dataSnapshot1.child("event_location").getValue().toString();
+                    String edate = String.valueOf(dataSnapshot1.child("event_date").getValue());
+                    String etime = String.valueOf(dataSnapshot1.child("event_time").getValue());
+                    String elocation = String.valueOf(dataSnapshot1.child("event_location").getValue());
                     uimage = dataSnapshot1.child("uimage").getValue().toString();
                     //hisdp = dataSnapshot1.child("udp").getValue().toString();
                     // hisuid = dataSnapshot1.child("uid").getValue().toString();
@@ -308,7 +308,7 @@ public class PostDetailsActivity extends AppCompatActivity {
                     event_location.setText(elocation);
 
                     description.setText(descriptions);
-                    like.setText(plike + " Likes");
+                    like.setText("People Attending: "+plike);
                     time.setText(timedate);
                     tcomment.setText(commentcount + " Comments");
                     if (uimage.equals("noImage")) {

@@ -95,7 +95,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         holder.title.setText(titlee);
         holder.description.setText(descri);
         holder.time.setText(timedate);
-        holder.like.setText(plike + " Likes");
+        holder.like.setText("People Attending: "+plike);
         holder.comments.setText(comm + " Comments");
         holder.event_date.setText(edate);
         holder.event_time.setText(etime);
@@ -236,10 +236,10 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
 
                 if (dataSnapshot.child(pid).hasChild(myuid)) {
                     holder.likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.yes_rsvpd, 0, 0, 0);
-                    holder.likebtn.setText("Liked");
+                    holder.likebtn.setText("RSVP'd");
                 } else {
                     holder.likebtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.not_rsvpd_yet, 0, 0, 0);
-                    holder.likebtn.setText("Like");
+                    holder.likebtn.setText("RSVP");
                 }
             }
 
